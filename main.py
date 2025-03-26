@@ -49,18 +49,7 @@ def extract_video_data(item):
     else:
         topics = []
     category = item["snippet"]["categoryId"]
-    if "localizations" in item:
-        en_localization = item["localizations"].get("en", {})
-        en_gb_localization = item["localizations"].get("en-GB", {})
-        en_us_localization = item["localizations"].get("en-US", {})
-        jp_localization = item["localizations"].get("ja", {})
-        hu_localization = item["localizations"].get("hu", {})
-    else:
-        en_localization = {}
-        en_gb_localization = {}
-        en_us_localization = {}
-        jp_localization = {}
-        hu_localization = {}
+    localizations = item.get("localizations", {})
     return {
         "ID": id,
         "Title": title,
@@ -70,11 +59,7 @@ def extract_video_data(item):
         "Language": language,
         "Categories": topics,
         "Category": category,
-        "en_localization": en_localization,
-        "en_gb_localization": en_gb_localization,
-        "en_us_localization": en_us_localization,
-        "jp_localization": jp_localization,
-        "hu_localization": hu_localization
+        "Localizations": localizations
     }
 
 
@@ -98,7 +83,7 @@ def chunk_list(lst, chunk_size):
 
 print("Fetching video IDs from PostTop...")
 video_ids_from_posttop = fetch_video_ids_from_posttop()
-chunked_videos = chunk_list(video_ids_from_posttop, 50)
+chunked_videos = chunk_list(video_ids_from_posttop[:200], 50)
 
 print("Fetching video details from YouTube...")
 current_chunk = 0
