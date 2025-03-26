@@ -99,4 +99,4 @@ for chunk in chunked_videos:
 print("Exporting details to data.json...")
 with open(f"data.json", "w") as json_file:
     json.dump(data, json_file, indent=4)
-print(f"Details exported to exp_details.json")
+print(f"Details exported to data.json")
