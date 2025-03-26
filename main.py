@@ -62,14 +62,14 @@ def extract_video_data(item):
         jp_localization = {}
         hu_localization = {}
     return {
-        "id": id,
-        "title": title,
-        "description": description,
-        "artist": artist,
-        "duration": duration,
-        "language": language,
-        "topics": topics,
-        "category": category,
+        "ID": id,
+        "Title": title,
+        "Description": description,
+        "Channel Name": artist,
+        "Duration": duration,
+        "Language": language,
+        "Categories": topics,
+        "Category": category,
         "en_localization": en_localization,
         "en_gb_localization": en_gb_localization,
         "en_us_localization": en_us_localization,
