@@ -83,7 +83,7 @@ def chunk_list(lst, chunk_size):
 
 print("Fetching video IDs from PostTop...")
 video_ids_from_posttop = fetch_video_ids_from_posttop()
-chunked_videos = chunk_list(video_ids_from_posttop[:200], 50)
+chunked_videos = chunk_list(video_ids_from_posttop, 50)
 
 print("Fetching video details from YouTube...")
 current_chunk = 0
@@ -100,3 +100,6 @@ print("Exporting details to data.json...")
 with open(f"data.json", "w") as json_file:
     json.dump(data, json_file, indent=4)
 print(f"Details exported to data.json")
+
+
+"asd"[0].isdigit()
